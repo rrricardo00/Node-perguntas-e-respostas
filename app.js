@@ -3,6 +3,7 @@ const consign = require('consign');
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs');
 consign().include('routes').into(app);
 
 app.get('/', (req, res) => res.send('Hello World!'));
