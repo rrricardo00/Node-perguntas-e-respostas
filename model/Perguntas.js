@@ -3,14 +3,16 @@ const connection = require('../database/database');
 
 const Perguntas = connection.define('pergunta', {
     // attributes
-    firstName: {
+    titulo: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    lastName: {
-        type: Sequelize.STRING
-            // allowNull defaults to true
+    descricao: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
-}, {
-    // options
 });
+
+Perguntas.sync({force: false}).then(()=>{});
+
+module.exports = Perguntas;

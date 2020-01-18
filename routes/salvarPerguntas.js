@@ -1,4 +1,5 @@
 const connection = require('../database/database');
+const perguntaModel = require('../model/Perguntas')
 
 connection.authenticate()
     .then(() => {
@@ -13,7 +14,13 @@ module.exports = (app) => {
     app.post('/salvarpergunta', (req, res) => {
         let titulo = req.body.titulo;
         let descricao = req.body.descricao;
-        res.send('formulario recebido! ' + titulo + ' ' + descricao);
+        perguntaModel.create({
+            titulo: titulo,
+            descricao: descricao
+
+        }).then(() => {
+            res.redirect('/');
+        });
     });
 
 }
