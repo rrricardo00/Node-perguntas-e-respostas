@@ -11,5 +11,5 @@ app.use(bodyParser.json());
 
 consign().include('routes').into(app);
 
-app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(port, () => console.log(`Example app listening on port port!`));
+app.get('/', (req, res) => res.send('Started!'));
+app.listen(port, () => console.log(`Port Accessed`));
